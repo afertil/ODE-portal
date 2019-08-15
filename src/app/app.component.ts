@@ -1,12 +1,11 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "app-root",
-  styleUrls: ["./app.component.scss"],
+  selector: 'app-root',
+  styleUrls: ['./app.component.scss'],
   template: `
-    <router-outlet></router-outlet>
+    <app-header> </app-header>
+    <app-sidenav [applications]="[]"></app-sidenav>
   `
 })
-export class AppComponent {
-  title = "ODE-portal";
-}
+export class AppComponent {}

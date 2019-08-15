@@ -10,7 +10,9 @@ export enum LOGGER_LEVEL {
   IMPORTANT
 }
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class LoggerService {
   constructor(private snackBar: MatSnackBar) {}
 
