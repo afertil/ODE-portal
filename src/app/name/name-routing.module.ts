@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { UpdateNameComponent } from './update/update.component';
 
-const routes: Routes = [];
+const ROUTES: Routes = [
+  {
+    path: 'update',
+    component: UpdateNameComponent
+  }
+];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(ROUTES)],
   exports: [RouterModule]
 })
 export class NameRoutingModule { }

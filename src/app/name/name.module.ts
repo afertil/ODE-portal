@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { NameRoutingModule } from './name-routing.module';
-import { UpdateComponent } from './update/update.component';
+import { UpdateNameComponent } from './update/update.component';
 
 
 @NgModule({
-  declarations: [UpdateComponent],
+  declarations: [UpdateNameComponent],
   imports: [
     CommonModule,
     NameRoutingModule
