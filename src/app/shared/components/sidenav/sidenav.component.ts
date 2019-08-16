@@ -18,13 +18,23 @@ import { ApplicationService } from '../../services/application.service';
         mode="side"
         class="container"
       >
-      <mat-nav-list role="list">
-        <h3 mat-subheader>Applications</h3>
-        <mat-list-item *ngFor="let app of applications" role="listitem">
-          <a matLine [routerLink]="app">{{ app }}</a>
-        </mat-list-item>
-      </mat-nav-list>
+        <mat-nav-list role="list">
+          <h3 mat-subheader>Applications</h3>
+          <ng-container *ngFor="let app of applications">
+            <mat-list-item *ngIf="app.enabled" role="listitem">
+              <a matLine  [routerLink]="app.name">{{ app.name }}</a>
+            </mat-list-item>
+          </ng-container>
+
+          <mat-divider></mat-divider>
+
+          <h3 mat-subheader>More</h3>
+          <mat-list-item>
+            <a matLine routerLink="config">Configuration</a>
+          </mat-list-item>
+        </mat-nav-list>
       </mat-sidenav>
+
       <mat-sidenav-content>
         <div class="wrapper">
           sidenav
