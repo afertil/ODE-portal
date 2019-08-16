@@ -5,7 +5,7 @@ import { UpdateNameComponent } from './update/update.component';
 
 const ROUTES: Routes = [
   {
-    path: 'update',
+    path: '',
     component: UpdateNameComponent
   }
 ];

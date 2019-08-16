@@ -20,4 +20,8 @@ export class ApplicationService {
   getConfig() {
     return this.appConfig;
   }
+
+  getActiveApplications() {
+    return this.appConfig.applications;
+  }
 }
