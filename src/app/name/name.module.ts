@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { NameRoutingModule } from './name-routing.module';
-import { UpdateNameComponent } from './update/update.component';
 
+import { NameComponent } from './containers/name.component';
+import { NameFormComponent } from './components/name-form/name-form.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [UpdateNameComponent],
-  imports: [
-    CommonModule,
-    NameRoutingModule
-  ]
+  declarations: [NameComponent, NameFormComponent],
+  imports: [NameRoutingModule, SharedModule.forRoot()]
 })
-export class NameModule { }
+export class NameModule {}

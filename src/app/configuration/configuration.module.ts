@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { ConfigurationRoutingModule } from './configuration-routing.module';
-import { UpdateConfigComponent } from './update/update.component';
+import { SharedModule } from '../shared/shared.module';
 
+import { ConfigurationComponent } from './containers/configuration.component';
 
 @NgModule({
-  declarations: [UpdateConfigComponent],
-  imports: [
-    CommonModule,
-    ConfigurationRoutingModule
-  ]
+  declarations: [ConfigurationComponent],
+  imports: [ConfigurationRoutingModule, SharedModule]
 })
-export class ConfigurationModule { }
+export class ConfigurationModule {}

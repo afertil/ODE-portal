@@ -1,6 +1,8 @@
 import { NgModule, APP_INITIALIZER, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 // Material components
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -12,8 +14,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
-import { AppRoutingModule } from '../app-routing.module';
 import { ApplicationService } from './services/application.service';
 import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
@@ -27,15 +29,29 @@ const MATERIAL_MODULES = [
   MatSlideToggleModule,
   MatListModule,
   MatIconModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatFormFieldModule
 ];
 
 const appInitializerFn = (app: ApplicationService) => () => app.loadAppConfig();
 
 @NgModule({
   declarations: [HeaderComponent, SidenavComponent],
-  imports: [...MATERIAL_MODULES, CommonModule, AppRoutingModule, HttpClientModule],
-  exports: [...MATERIAL_MODULES, HeaderComponent, SidenavComponent]
+  imports: [
+    ...MATERIAL_MODULES,
+    CommonModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule
+  ],
+  exports: [
+    ...MATERIAL_MODULES,
+    HeaderComponent,
+    SidenavComponent,
+    CommonModule,
+    HttpClientModule,
+    ReactiveFormsModule
+  ]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
