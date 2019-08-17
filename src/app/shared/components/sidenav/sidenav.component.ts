@@ -1,13 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, Input } from "@angular/core";
+import { Observable } from "rxjs";
 
-import { ApplicationService } from '../../services/application.service';
+import { ApplicationService } from "../../services/application.service";
 
 // import { Store } from "@store";
 
 @Component({
-  selector: 'app-sidenav',
-  styleUrls: ['sidenav.component.scss'],
+  selector: "app-sidenav",
+  styleUrls: ["sidenav.component.scss"],
   template: `
     <mat-sidenav-container class="sidenav">
       <mat-sidenav
@@ -22,7 +22,7 @@ import { ApplicationService } from '../../services/application.service';
           <h3 mat-subheader>Applications</h3>
           <ng-container *ngFor="let app of applications">
             <mat-list-item *ngIf="app.enabled" role="listitem">
-              <a matLine  [routerLink]="app.name">{{ app.name }}</a>
+              <a matLine [routerLink]="app.name">{{ app.name }}</a>
             </mat-list-item>
           </ng-container>
 
@@ -37,7 +37,6 @@ import { ApplicationService } from '../../services/application.service';
 
       <mat-sidenav-content>
         <div class="wrapper">
-          sidenav
           <router-outlet></router-outlet>
           <!-- <mat-spinner diameter="50"></mat-spinner> -->
         </div>

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
-import { Configuration } from 'src/app/shared/interfaces/configuration';
-import { ApplicationService } from 'src/app/shared/services/application.service';
+import { Configuration } from "src/app/shared/interfaces/configuration";
+import { ApplicationService } from "src/app/shared/services/application.service";
 
 @Component({
-  selector: 'app-name',
+  selector: "app-name",
   // styleUrls: ['./update.component.scss'],
   template: `
     <div>
@@ -19,7 +19,7 @@ export class NameComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log('init Name app:');
+    console.log("init Name app:");
   }
 
   /**
@@ -28,6 +28,7 @@ export class NameComponent implements OnInit {
    * @param {String} name
    */
   updateName(name: String) {
+    console.log(name);
     // this.articlesService.updateArticle(key, event)
     //   .subscribe(
     //     res => {

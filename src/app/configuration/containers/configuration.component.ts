@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
-import { Configuration } from 'src/app/shared/interfaces/configuration';
-import { ApplicationService } from 'src/app/shared/services/application.service';
+import { Configuration } from "src/app/shared/interfaces/configuration";
+import { ApplicationService } from "src/app/shared/services/application.service";
 
 @Component({
-  selector: 'app-configuration',
+  selector: "app-configuration",
   // styleUrls: ['./update.component.scss'],
   template: `
     <div>
-      <!-- <app-configuration-form
+      <app-configuration-form
         [configuration]="configuration"
         (update)="updateConfig($event)"
       >
-      </app-configuration-form> -->
+      </app-configuration-form>
     </div>
   `
 })
@@ -23,7 +23,7 @@ export class ConfigurationComponent implements OnInit {
 
   ngOnInit() {
     this.configuration = this.applicationService.getConfig();
-    console.log('Init config app', this.configuration);
+    console.log("Init config app", this.configuration);
   }
 
   /**

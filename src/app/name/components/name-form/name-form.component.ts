@@ -6,13 +6,13 @@ import {
   Output,
   EventEmitter,
   SimpleChanges
-} from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+} from "@angular/core";
+import { FormBuilder, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'app-name-form',
-  // changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrls: ['./update.component.scss'],
+  selector: "app-name-form",
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ["./update.component.scss"],
   template: `
     <div class="name-form">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -23,7 +23,14 @@ import { FormBuilder, Validators } from '@angular/forms';
           </mat-error>
         </mat-form-field>
 
-        <button type="submit" [disabled]="!form.valid">Submit</button>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!form.valid"
+        >
+          Submit
+        </button>
       </form>
 
       {{ name }}
@@ -36,14 +43,13 @@ export class NameFormComponent implements OnInit {
   @Output() update = new EventEmitter<String>();
 
   form = this.fb.group({
-    name: ['', Validators.required]
+    name: [this.name, Validators.required]
   });
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.name = '';
-    console.log('Init name-form');
+    console.log("Init name-form");
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -52,11 +58,11 @@ export class NameFormComponent implements OnInit {
 
   required(field) {
     return (
-      this.form.get(field).hasError('required') && this.form.get(field).touched
+      this.form.get(field).hasError("required") && this.form.get(field).touched
     );
   }
 
   onSubmit() {
-    if (this.form.valid) this.update.emit(this.form.value);
+    if (this.form.valid) this.update.emit(this.form.value.name);
   }
 }
